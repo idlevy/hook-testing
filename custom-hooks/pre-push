@@ -2,9 +2,7 @@
 
 echo "sleepling"
 
-echo 1
-
-echo "udpate file"
+echo starting
 
 
 echo "########################"
@@ -17,6 +15,8 @@ echo 1234 >> test.file
 
 
 echo "########################"
+echo  "#######git status ##########"
+echo "########################"
 git status
 
 echo "########################"
@@ -25,17 +25,29 @@ echo "########################"
 git add .
 #get last commit msg
 lastmsg=`git log -1 --pretty=%B`
-#ammend file
-#git commit --amend  -m "NewVersion $ntag,  $lastmsg"
-git commit   -m "NewVersion $ntag,  $lastmsg"
 
 echo "########################"
-echo "check commit 1"
+echo  "#######git status ##########"
+echo "########################"
+
+git status
+
+
+#ammend file
+#git commit --amend  -m "NewVersion $ntag,  $lastmsg"
+git commit  -m "NewVersion $ntag,  $lastmsg"
+
+echo "########################"
+echo "####### check commit 2 #####"
+echo "########################"
 git rev-parse HEAD
 
 
 
 echo "########################"
+echo  "#######git status ##########"
+echo "########################"
+
 git status
 echo "########################"
 #elif [ -f ".lock" ]; then
@@ -43,6 +55,3 @@ echo "########################"
 #git tag $ntag
 #rm .lock
 #fi
-
-
-sleep 5
