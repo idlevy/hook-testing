@@ -40,7 +40,8 @@ git add .
 #get last commit msg
 lastmsg=`git log -1 --pretty=%B`
 #ammend file
-git commit --amend  -m "NewVersion $ntag,  $lastmsg"
+#git commit --amend  -m "NewVersion $ntag,  $lastmsg"
+git commit   -m "NewVersion $ntag,  $lastmsg"
 
 echo "########################"
 git status 
