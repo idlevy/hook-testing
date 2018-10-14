@@ -1,4 +1,8 @@
 #!/bin/bash
+
+echo "sleepling"
+sleep 15
+
 myos=`uname -s`
 echo $myos
 #if [ ! -f ".lock" ];then
@@ -25,14 +29,26 @@ if [ "$myos" = "Darwin" ]; then
 else
     sed -i "s/$rtag/$ntag/g" ./package.json
 fi
+
+echo "########################"
+git status 
+
+echo "########################"
+
 #add file
 git add ./package.json
 #get last commit msg
 lastmsg=`git log -1 --pretty=%B`
 #ammend file
 git commit --amend  -m "NewVersion $ntag,  $lastmsg"
+
+echo "########################"
+git status 
+echo "########################"
 #elif [ -f ".lock" ]; then
 #echo 111
 #git tag $ntag
 #rm .lock
 #fi
+
+sleep 5
