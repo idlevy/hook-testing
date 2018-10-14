@@ -1,0 +1,41 @@
+{
+  "name": "areas-blacklist-manager",
+  "version": "0.8.6",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "mongoose": "^5.0.16",
+    "react-dom": "^16.2.0",
+    "react-test-renderer": "^16.2.0",
+    "swagger-ui-express": "^3.0.8"
+  },
+  "devDependencies": {
+    "redux-logger": "^3.0.6",
+    "selenium-webdriver": "^4.0.0-alpha.1"
+  },
+  "scripts": {
+    "before-push": "npm run install && npm run tests && npm run deploy-client-to-server",
+    "client": "cd client && npm run start",
+    "server": "cd server && DEBUG=v2x:* npm start",
+    "devserver": "cd server && npm run devserver",
+    "deploy-client-to-server": "cd scripts && ./deploy-client-to-server.sh",
+    "build-docker": "./scripts/build-docker-release.sh",
+    "install": "npm run install-client && npm run install-server && npm run install-submoudle",
+    "install-server": "cd server && npm install",
+    "install-client": "cd client && npm install",
+    "install-submoudle": "cd server/src/common && npm install",
+    "mongo": "sudo docker run -p 27017:27017 mongo",
+    "client-test:watch": "cd client && npm run test:watch -- -u",
+    "tests": "npm run client-tests && npm run server-tests-deploy",
+    "client-tests": "cd client && npm run test",
+    "server-tests": "cd server && npm run test",
+    "server-tests-deploy": "cd server && npm run test --MONGO_ADDR=mongo:27017/shapes",
+    "build-client-to-server": "cd client && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@git-v2x.foresightauto-intra.com:web/areas-blacklist-manager.git"
+  },
+  "author": "",
+  "license": "ISC"
+}
